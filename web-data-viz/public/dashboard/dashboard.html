@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
 
-    
+
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
@@ -74,6 +74,10 @@
         </div>
     </div>
 
+    <div class="KPImaturacao">
+        <div id="div_maturacao"></div>
+    </div>
+
 
 </body>
 
@@ -85,6 +89,60 @@
     let proximaAtualizacao;
 
     window.onload = exibirAquariosDoUsuario();
+
+    var respostaMaturacao = ''
+
+    function buscarDataMaturacao() {
+        fetch(`/maturacao/maturacaoRota`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    respostaMaturacao = resposta;
+                    resposta.reverse();
+
+                })
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+    }
+
+    function mostrarDataMaturacao(resposta) {
+        if (resposta.tempoMaturacao == 'rapido') {
+            if (resposta.diaMaturacao < 14) {
+                div_maturacao.innerHTML = `<div class='Abaixo'> ${resposta.diaMaturacao} / 28 Dias </div>`
+
+            } else if (resposta.diaMaturacao < 28) {
+                div_maturacao.innerHTML = `<div class='Metade'> ${resposta.diaMaturacao} / 28 Dias </div>`
+
+            } else {
+                div_maturacao.innerHTML = `<div class='Completo'> ${resposta.diaMaturacao} / 28 Dias </div>`
+            }
+
+        } else if (resposta.tempoMaturacao == 'medio') {
+            if (resposta.diaMaturacao < 20) {
+                div_maturacao.innerHTML = `<div class='Abaixo'> ${resposta.diaMaturacao} / 40 Dias </div>`
+
+            } else if (resposta.diaMaturacao < 48) {
+                div_maturacao.innerHTML = `<div class='Metade'> ${resposta.diaMaturacao} / 40 Dias </div>`
+
+            } else {
+                div_maturacao.innerHTML = `<div class='Completo'> ${resposta.diaMaturacao} / 40 Dias </div>`
+            }
+
+        } else {
+            if (resposta.diaMaturacao < 547) {
+                div_maturacao.innerHTML = `<div class='Abaixo'> ${resposta.diaMaturacao} / 1095 Dias </div>`
+
+            } else if (resposta.diaMaturacao < 1095) {
+                div_maturacao.innerHTML = `<div class='Metade'> ${resposta.diaMaturacao} / 1095 Dias </div>`
+
+            } else {
+                div_maturacao.innerHTML = `<div class='Completo'> ${resposta.diaMaturacao} / 1095 Dias </div>`
+            }
+
+        }
+    }
 
     function exibirAquariosDoUsuario() {
         var aquarios = JSON.parse(sessionStorage.AQUARIOS);
