@@ -1,9 +1,9 @@
-var aquarioModel = require("../models/aquarioModel");
+var aquarioModel = require("../models/tanqueModel");
 
-function buscarAquariosPorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+function buscarTanquesPorEmpresa(req, res) {
+  var idUsuario = req.params.id;
 
-  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+  aquarioModel.buscarTanquesPorEmpresa(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -11,7 +11,7 @@ function buscarAquariosPorEmpresa(req, res) {
     }
   }).catch(function (erro) {
     console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    console.log("Houve um erro ao buscar os tanques: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
 }
@@ -19,7 +19,7 @@ function buscarAquariosPorEmpresa(req, res) {
 
 function cadastrar(req, res) {
   var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+  var idUsuario = req.body.id;
 
   if (descricao == undefined) {
     res.status(400).send("descricao está undefined!");
@@ -28,7 +28,7 @@ function cadastrar(req, res) {
   } else {
 
 
-    aquarioModel.cadastrar(descricao, idUsuario)
+    tanqueModel.cadastrar(descricao, id)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -44,6 +44,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarTanquesPorEmpresa,
   cadastrar
 }
