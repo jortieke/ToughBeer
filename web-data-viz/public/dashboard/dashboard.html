@@ -107,38 +107,38 @@
         })
     }
 
-    function mostrarDataMaturacao(resposta) {
-        if (resposta.tempoMaturacao == 'rapido') {
-            if (resposta.diaMaturacao < 14) {
-                div_maturacao.innerHTML = `<div class='Abaixo'> ${resposta.diaMaturacao} / 28 Dias </div>`
+    function mostrarDataMaturacao() {
+        if (respostaMaturacao.tempoMaturacao == 'rapido') {
+            if (respostaMaturacao.diaMaturacao < 14) {
+                div_maturacao.innerHTML = `<div class='Abaixo'> ${respostaMaturacao.diaMaturacao} / 28 Dias </div>`
 
-            } else if (resposta.diaMaturacao < 28) {
-                div_maturacao.innerHTML = `<div class='Metade'> ${resposta.diaMaturacao} / 28 Dias </div>`
+            } else if (respostaMaturacao.diaMaturacao < 28) {
+                div_maturacao.innerHTML = `<div class='Metade'> ${respostaMaturacao.diaMaturacao} / 28 Dias </div>`
 
             } else {
-                div_maturacao.innerHTML = `<div class='Completo'> ${resposta.diaMaturacao} / 28 Dias </div>`
+                div_maturacao.innerHTML = `<div class='Completo'> ${respostaMaturacao.diaMaturacao} / 28 Dias </div>`
             }
 
-        } else if (resposta.tempoMaturacao == 'medio') {
-            if (resposta.diaMaturacao < 20) {
-                div_maturacao.innerHTML = `<div class='Abaixo'> ${resposta.diaMaturacao} / 40 Dias </div>`
+        } else if (respostaMaturacao.tempoMaturacao == 'medio') {
+            if (respostaMaturacao.diaMaturacao < 20) {
+                div_maturacao.innerHTML = `<div class='Abaixo'> ${respostaMaturacao.diaMaturacao} / 40 Dias </div>`
 
-            } else if (resposta.diaMaturacao < 48) {
-                div_maturacao.innerHTML = `<div class='Metade'> ${resposta.diaMaturacao} / 40 Dias </div>`
+            } else if (respostaMaturacao.diaMaturacao < 48) {
+                div_maturacao.innerHTML = `<div class='Metade'> ${respostaMaturacao.diaMaturacao} / 40 Dias </div>`
 
             } else {
-                div_maturacao.innerHTML = `<div class='Completo'> ${resposta.diaMaturacao} / 40 Dias </div>`
+                div_maturacao.innerHTML = `<div class='Completo'> ${respostaMaturacao.diaMaturacao} / 40 Dias </div>`
             }
 
         } else {
-            if (resposta.diaMaturacao < 547) {
-                div_maturacao.innerHTML = `<div class='Abaixo'> ${resposta.diaMaturacao} / 1095 Dias </div>`
+            if (respostaMaturacao.diaMaturacao < 547) {
+                div_maturacao.innerHTML = `<div class='Abaixo'> ${respostaMaturacao.diaMaturacao} / 1095 Dias </div>`
 
-            } else if (resposta.diaMaturacao < 1095) {
-                div_maturacao.innerHTML = `<div class='Metade'> ${resposta.diaMaturacao} / 1095 Dias </div>`
+            } else if (respostaMaturacao.diaMaturacao < 1095) {
+                div_maturacao.innerHTML = `<div class='Metade'> ${respostaMaturacao.diaMaturacao} / 1095 Dias </div>`
 
             } else {
-                div_maturacao.innerHTML = `<div class='Completo'> ${resposta.diaMaturacao} / 1095 Dias </div>`
+                div_maturacao.innerHTML = `<div class='Completo'> ${respostaMaturacao.diaMaturacao} / 1095 Dias </div>`
             }
 
         }
