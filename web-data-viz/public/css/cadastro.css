@@ -164,8 +164,8 @@ body {
 
 .login {
     height: var(--tamanho-login);
-    background-image: url('../assets/imgs/duff-uau.webp');
-    background-position: 10% 67%;
+    background-image: url('../assets/imgs/duff-beer.jpg');
+    background-position: 10% 55%;
     background-size: cover;
 }
 

@@ -2,11 +2,12 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/imgs/duff-logo.png"
+        type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>ToughBeer | Tanques</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -20,20 +21,23 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body>
 
     <div class="janela">
 
         <div class="header-left dash-header">
-
-            <h1>AquaTech</h1>
+            <img class="logo-dash"
+                src="https://images.seeklogo.com/logo-png/19/2/duff-brasil-logo-png_seeklogo-199375.png" width="200px"
+                alt="logo">
+            <h1 class="titulo-projeto">ToughBeer</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
+            <hr width="80%">
 
             <div class="btn-nav">
-                <h3>Aquários</h3>
+                <h3>Tanques</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -42,14 +46,9 @@
                 </a>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
+            <br>
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <h3>SAIR</h3>
             </div>
 
         </div>
@@ -63,24 +62,16 @@
                 </p>
                 <div class="parametros-alerta">
                     <div class="item-regua perigo-frio">
-                        <p>Perigo</p>
-                        <p>&lt;=5°C</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Alerta</p>
-                        <p>&lt;=10°C</p>
+                        <p>Abaixo do Comum</p>
+                        <p>&lt;= 40%</p>
                     </div>
                     <div class="item-regua ideal">
                         <p>Ideal</p>
-                        <p>20°C</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Alerta</p>
-                        <p>&gt;=22°C</p>
+                        <p>≃75%</p>
                     </div>
                     <div class="item-regua perigo-quente">
-                        <p>Perigo</p>
-                        <p>&gt;=23°C</p>
+                        <p>Sobrecarga</p>
+                        <p>&gt;= 95%</p>
                     </div>
                 </div>
             </div>
@@ -100,18 +91,18 @@
     function exibirAquarios() {
         JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
             document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
+<div class="card-aquario">
+<div class="title-aquario">
+<h1>${item.descricao}</h1>
+</div>
+<div class="desc-aquario">
+<div class="temperatura">
+<p id="temp_aquario_${item.id}">-°C</p>
+</div>
+<div class="cor-alerta" id="card_${item.id}"></div>
+</div>
+</div>
+`
         });
     }
 

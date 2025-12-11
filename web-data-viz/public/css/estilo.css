@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/simpsonfont-3');
 
 body {
   margin: 0;
@@ -9,10 +9,22 @@ body {
 
 :root {
   --tamanho-header: 80px;
-  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-banner: calc(85vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
+
+
+  --cor00: #7dccef;
+  --cor01: #cb0104;
+  --cor02: #a30001;
+  --cor04: #0c73b0;
+  --cor03: #e8e8e8;
+  --cor05: #f4ba00;
+}
+
+.font-simpson {
+  font-family: 'Simpsonfont', sans-serif;
 }
 
 .container {
@@ -22,6 +34,8 @@ body {
 }
 
 .header {
+  border-bottom: 3px solid red;
+  background-color: black;
   height: var(--tamanho-header);
 }
 
@@ -50,7 +64,7 @@ body {
 }
 
 .titulo {
-  color: #32b9cd;
+  color: #cb0104;
   width: fit-content;
   font-weight: 500;
 }
@@ -64,13 +78,15 @@ body {
 .banner {
   height: var(--tamanho-banner);
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: url('../assets/imgs/wallpaper_2.jpg');
+  background-position: 10% 70%;
   background-size: cover;
 }
 
 .banner .container {
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.24);
   height: 100%;
 }
 
@@ -88,12 +104,17 @@ body {
 /* MISSÃO VISÃO VALORES */
 
 .social {
+
   background-color: #e5e5e5;
   display: flex;
 }
 
 .social .container {
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  padding: 20px;
+  ;
 }
 
 .box img {
@@ -102,29 +123,34 @@ body {
 
 .social .container .boxes {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  width: 5000px;
+  max-width: 100%;
   padding: 30px 0;
 }
 
 .social p {
   text-align: center;
+
 }
 
 .box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0 20px;
+  width: 450px;
 }
 
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
+  background-color: var(--cor02);
   height: 150px;
   color: #fff;
   display: flex;
   font-size: 15px;
+  border-top: 2px solid var(--cor01);
 }
 
 .footer .container {
@@ -236,7 +262,7 @@ body {
 
 /* FORMULARIO */
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -244,7 +270,7 @@ body {
 .card_erro {
   display: none;
   background-color: #fff;
-  color: black;
+  /* color: black; */
   width: 230px;
   position: fixed;
   border-radius: 4px;
@@ -253,7 +279,7 @@ body {
   margin-right: 10%;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
 }
@@ -309,7 +335,7 @@ input {
 
 .simulador .container {
   flex-direction: column;
-  overflow: scroll; 
+  overflow: scroll;
   height: var(--tamanho-simulador);
 }
 
@@ -352,10 +378,42 @@ input {
   animation-iteration-count: infinite;
 }
 
+.personagem {
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 100px;
+  background-color: #e3b062;
+  height: 60vh;
+}
+
+.moe {
+  justify-content: end;
+  align-items: center;
+  margin-top: 275px;
+  display: flex;
+  height: 95%;
+  width: 100%;
+}
+
 @keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
+  0% {
+    transform: rotate(25deg)
+  }
+
+  25% {
+    transform: rotate(-25deg)
+  }
+
+  50% {
+    transform: rotate(25deg)
+  }
+
+  75% {
+    transform: rotate(-25deg)
+  }
+
+  100% {
+    transform: rotate(25deg)
+  }
 }

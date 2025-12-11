@@ -1,112 +1,12 @@
 /* pagina mural */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount+Prop+Single:wght@100..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/simpsonfont-3');
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.label-captura {
-  display: flex;
-  justify-content: center;
-}
-
-.dash-right .avisos {
-  width: 100%;
-  color: rgb(216, 216, 216);
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.dash-right .avisos .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dash-right .avisos .container .div-form {
-  width: 95%;
-}
-
-.dash-right .avisos .container .div-form #form_postagem {
-  width: 95%;
-}
-
-.dash-right .avisos .div-form label {
-  width: 95%;
-}
-
-.dash-right .avisos .div-form input {
-  width: 95%;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form textarea {
-  width: 95%;
-  border: 3px solid #e6005a;
-  background-color: white;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form button {
-  cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-}
-
-.publicacao-btn-editar {
-  cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
-  width: 80px;
-}
-
-.publicacao {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  border-bottom: 3px solid #e6005a;
-  padding: 20px;
-}
-
-.publicacao>*:not(:last-child) {
-  padding: 0 0 10px 0;
-}
-
-.div-results {
-  width: 100%;
-}
-
-.div-results .feed-container {
-  background-color: #212124;
-  border-radius: 5px;
-  margin-bottom: 80px;
-}
-
-.div-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.div-buttons>* {
-  margin-left: 30px;
 }
 
 /* pagina graficos */
@@ -115,12 +15,20 @@ body {
   background-color: #212124;
 }
 
+.logo-dash {
+  transition: all 2s ease;
+}
+
+.logo-dash:hover {
+  transform: rotateY(360deg);
+}
+
 .dash {
   width: 80%;
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: white;
   height: 100vh;
   overflow: auto;
 }
@@ -148,7 +56,7 @@ body {
 }
 
 .item-regua {
-  width: 20%;
+  width: 100%;
   text-align: center;
   height: 80px;
   display: flex;
@@ -172,14 +80,6 @@ body {
 
 .perigo-quente {
   background-color: #ff7043;
-}
-
-.alerta-frio {
-  background-color: #42a5f5;
-}
-
-.alerta-quente {
-  background-color: #ffee58;
 }
 
 .ideal {
@@ -325,7 +225,9 @@ canvas {
   height: 100% !important;
 }
 
+/* ================================= */
 /* PAGINA DOS GRÁFICOS 2023 */
+/* ================================= */
 
 .janela {
   display: flex;
@@ -335,6 +237,13 @@ canvas {
 .header-left a {
   text-decoration: none;
   color: white;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 28px;
+}
+
+.header-left a:focus {
+  outline: none;
 }
 
 .header-left {
@@ -347,16 +256,19 @@ canvas {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 2px;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  /* border-right: 3px solid #32b9cd; */
+  background-color: #fffbd2;
+
+  box-shadow: 5px 0 32px rgba(0, 0, 0, 0.650);
 }
 
 .dash-right {
   display: flex;
   width: 70%;
   height: fit-content;
-  background-color: #161618;
+  background-color: #181816;
   position: relative;
   top: 0;
   left: 25%;
@@ -365,19 +277,25 @@ canvas {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: #cd3232;
+  font-family: 'Simpsonfont';
+  font-size: 62px;
+  margin: 0;
+
+  transition: transform 0.3s ease;
 }
 
 .hello {
   width: 100%;
   display: flex;
   justify-content: center;
+
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #f6ba61;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 42px;
 }
 
 .hello h3 span {
@@ -385,25 +303,41 @@ canvas {
 }
 
 .btn-nav {
-  width: 40%;
+  width: 110%;
   color: white;
-  background-color: #e6005a;
-  border-radius: 5px;
+  font-weight: 100;
+  background-color: #cd3232;
+  border-radius: 5px 0 30px 0;
   text-align: center;
-  padding: 2% 5%;
+  padding: 5% 5%;
+
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 5px 0 12px rgba(0, 0, 0, 0.650);
+  transition: all 0.4s ease;
+}
+
+.btn-nav:hover,
+.btn-nav-white:hover {
+  transform: scale(1.05);
+}
+
+.btn-nav-white:hover {
+  font-weight: 1000;
 }
 
 .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
+  transition: all 0.4s ease;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #cd3232;
   padding: 0;
   margin: 0;
 }
@@ -417,12 +351,28 @@ canvas {
 .btn-logout {
   margin: 0;
   padding: 0;
-  width: 20%;
-  background-color: #32b9cd;
+  width: 50%;
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-size: 26px;
+  background-color: #cd3232;
+  /* background: url('https://usagif.com/wp-content/uploads/gif/beer-10.gif'); */
+  background-position: 20% 20%;
   color: white;
-  border-radius: 10px;
+  border-radius: 20px 0 20px 0;
+
+  /* -webkit-text-stroke: white 2px solid; */
+  /* -webkit-text-stroke-color: white; Estiliza cor da borda no texto do button */
+  /* -webkit-text-stroke-width: 1px; Esse coloca o tamanho da borda no texto button */
   text-align: center;
-  padding: 10px 15px;
+  padding: 20px 25px;
   margin-bottom: 100px;
   cursor: pointer;
+  transition: all 0.7s ease;
+}
+
+.btn-logout:hover {
+  color: rgb(232, 232, 232);
+  transform: scale(1.05);
+  background-color: #9a2626;
 }
