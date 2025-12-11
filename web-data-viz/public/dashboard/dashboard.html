@@ -197,26 +197,25 @@
 
         console.log('iniciando plotagem do gráfico...');
 
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        const DATA_COUNT = 5;
+        const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100};
 
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
+        const labels = ['Inferior que 25%', 'Entre 25 e 50%', 'Entre 50 e 75%', 'Entre 75 e 90%', 'Superior a 90%'];
+        const data = {
+        labels: labels,
+        datasets: [
             {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
+            label: 'Tanques',
+            data: Utils.numbers(NUMBER_CFG),
+            backgroundColor: [
+                Utils.transparentize(Utils.CHART_COLORS.greed, 0.5),
+                Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+                Utils.transparentize(Utils.CHART_COLORS.yellow, 0.5),
+                Utils.transparentize(Utils.CHART_COLORS.orange, 0.5),
+                Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            ]
+            }
+        ]
         };
 
         console.log('----------------------------------------------')
