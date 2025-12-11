@@ -1,0 +1,23 @@
+@import url('https://fonts.cdnfonts.com/css/simpsonfont-3');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Simpsonfont', sans-serif;
+}
+
+:root {
+    --cor04: #0c73b0;
+    --cor00: #7dccef;
+    --cor02: #a30001;
+    --cor01: #cb0104;
+    --cor03: #e8e8e8;
+    --cor05: #f4ba00;
+}
+
+.header {
+  height: var(--tamanho-header);
+  border-bottom: 2px solid #32b9cd;
+}
