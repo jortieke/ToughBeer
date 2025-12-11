@@ -29,8 +29,11 @@ create table tanque (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	descricao VARCHAR(300),
-    tempoMaturacao datetime,
-    setor varchar(50),
+    dataCadastro datetime,
+    tempoMaturacao varchar(15),
+    constraint chkTempoMaturacao
+    check (tempoMaturacao in ('rápido', 'médio', 'longo')),
+	setor varchar(50),
     fk_usuario int,
     foreign key (fk_usuario) references usuario(id)
 );
@@ -58,15 +61,15 @@ INSERT INTO aviso (titulo, descricao, fk_usuario) VALUES
 ('Alerta de Segurança', 'Tentativa de acesso suspeito detectada.', 1),
 ('Treinamento Interno', 'Sessão de atualização das normas de segurança.', 4);
 
-INSERT INTO tanque (descricao, tempoMaturacao, setor, fk_usuario) VALUES
-('Tanque de maturação Ales', '2025-01-10 08:00:00', 'Setor A', 1),      -- rapido 1-4 semanas maturacao
-('Tanque de maturação Lagers', '2025-01-10 08:00:00', 'Setor A', 1),    -- medio 30-40 dias maturacao
-('Tanque de maturação Lambics', '2025-01-10 08:00:00', 'Setor A', 1),   -- longo 1-3 ano maturacao
-('Tanque de fermentação Ales', '2025-01-20 14:00:00', 'Setor B', 2),
-('Tanque de fermentação Lagers', '2025-01-20 14:00:00', 'Setor B', 2),
-('Tanque de fermentação Lambics', '2025-01-20 14:00:00', 'Setor B', 2),
-('Tanque especial Tough', '2025-01-25 09:15:00', 'Setor C', 3),
-('Tanque especial Duff', '2025-01-25 09:15:00', 'Setor C', 4);
+INSERT INTO tanque (descricao, dataCadastro, tempoMaturacao, setor, fk_usuario) VALUES
+('Tanque de maturação Ales', '2025-01-10 08:00:00','rápido', 'Setor A', 1),      -- rapido 1-4 semanas maturacao
+('Tanque de maturação Lagers', '2025-01-10 08:00:00','médio', 'Setor A', 1),    -- medio 30-40 dias maturacao
+('Tanque de maturação Lambics', '2025-01-10 08:00:00','longo', 'Setor A', 1),   -- longo 1-3 ano maturacao
+('Tanque de fermentação Ales', '2025-01-20 14:00:00','rápido', 'Setor B', 2),
+('Tanque de fermentação Lagers', '2025-01-20 14:00:00','médio', 'Setor B', 2),
+('Tanque de fermentação Lambics', '2025-01-20 14:00:00','longo', 'Setor B', 2),
+('Tanque especial Tough', '2025-01-25 09:15:00','longo', 'Setor C', 3),
+('Tanque especial Duff', '2025-01-25 09:15:00','longo', 'Setor C', 4);
 
 INSERT INTO medida (volume, dataMedida, situacao, fk_tanque) VALUES
 (14400, '2025-02-01 10:00:00', 'Normal', 1),
@@ -117,3 +120,12 @@ INSERT INTO medida (volume, dataMedida, situacao, fk_tanque) VALUES
 (12750, '2025-02-07 13:00:00', 'Normal', 8),
 (12300, '2025-02-08 13:00:00', 'Normal', 8),
 (11850, '2025-02-09 13:00:00', 'Alerta', 8);
+
+ select count(setor) as 'nº de tanques em maturação'
+   from tanque where setor = 'Setor A';
+   
+SELECT 
+    descricao,
+    dataCadastro,
+    TIMESTAMPDIFF(DAY, dataCadastro, NOW()) AS 'Dias de maturação'
+FROM tanque;
