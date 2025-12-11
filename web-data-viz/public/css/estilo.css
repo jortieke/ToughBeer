@@ -80,14 +80,16 @@ body {
   color: white;
   background-image: url('../assets/imgs/wallpaper_2.jpg');
   background-position: 10% 70%;
+  /* filter: brightness(70%); */
   background-size: cover;
 }
 
 .banner .container {
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.24);
+  background-color: rgba(0, 0, 0, 0.352);
   height: 100%;
+  width: 100%;
 }
 
 .banner .container p {
@@ -385,6 +387,10 @@ input {
   padding: 100px;
   background-color: #e3b062;
   height: 60vh;
+
+  display: flex;
+  /* position: fixed;
+  top: 200px; */
 }
 
 .moe {
@@ -394,6 +400,17 @@ input {
   display: flex;
   height: 95%;
   width: 100%;
+}
+
+.moe img {
+  width: 250px;
+}
+
+.texto-moe{
+  font-size: 70px;
+  font-weight: 700;
+  font-family: 'Simpsonfont', sans-serif;
+  letter-spacing: 4px;
 }
 
 @keyframes bell {
