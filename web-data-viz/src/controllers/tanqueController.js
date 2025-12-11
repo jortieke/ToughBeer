@@ -1,9 +1,9 @@
-var tanqueModel = require("../models/tanqueModel");
+var aquarioModel = require("../models/tanqueModel");
 
-function buscarTanquePorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+function buscarTanquesPorEmpresa(req, res) {
+  var idUsuario = req.params.id;
 
-  tanqueModel.buscarTanquePorEmpresa(idUsuario).then((resultado) => {
+  aquarioModel.buscarTanquesPorEmpresa(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -19,7 +19,7 @@ function buscarTanquePorEmpresa(req, res) {
 
 function cadastrar(req, res) {
   var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+  var idUsuario = req.body.id;
 
   if (descricao == undefined) {
     res.status(400).send("descricao está undefined!");
@@ -28,7 +28,7 @@ function cadastrar(req, res) {
   } else {
 
 
-    tanqueModel.cadastrar(descricao, idUsuario)
+    tanqueModel.cadastrar(descricao, id)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -44,6 +44,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarTanquePorEmpresa,
+  buscarTanquesPorEmpresa,
   cadastrar
 }
