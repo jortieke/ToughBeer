@@ -121,11 +121,30 @@ INSERT INTO medida (volume, dataMedida, situacao, fk_tanque) VALUES
 (12300, '2025-02-08 13:00:00', 'Normal', 8),
 (11850, '2025-02-09 13:00:00', 'Alerta', 8);
 
- select count(setor) as 'nº de tanques em maturação'
-   from tanque where setor = 'Setor A';
+ SELECT count(setor) AS 'nº de tanques em maturação'
+   FROM tanque WHERE setor = 'Setor A';
    
-SELECT 
+CREATE VIEW vwTempoMaturacao as 
+SELECT
+	id,
     descricao,
     dataCadastro,
     TIMESTAMPDIFF(DAY, dataCadastro, NOW()) AS 'Dias de maturação'
-FROM tanque;
+FROM tanque WHERE descricao LIKE 'Tanque de maturação%' OR descricao LIKE 'Tanque especial Tough' OR descricao LIKE 'Tanque especial Duff';
+   
+SELECT
+	id,
+    descricao,
+    dataCadastro,
+    TIMESTAMPDIFF(DAY, dataCadastro, NOW()) AS 'Dias de maturação'
+FROM tanque WHERE descricao LIKE 'Tanque de maturação%' OR descricao LIKE 'Tanque especial Tough' OR descricao LIKE 'Tanque especial Duff';
+
+select * from vwTempoMaturacao;
+
+select id,
+round((volume/16000 * 100), 2) as '% de nível do tanque'
+ from medida;
+ 
+
+
+
